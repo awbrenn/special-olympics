@@ -1,0 +1,46 @@
+<%= link_to 'New Athlete', new_athlete_path %>
+
+<p id="notice"><%= notice %></p>
+<h1>Listing athletes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Athlete ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Score</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @athletes.each do |athlete| %>
+      <tr>
+        <td><%= athlete.id %></td>
+        <td><%= athlete.first_name %></td>
+        <td><%= athlete.last_name %></td>
+        <td><%= athlete.age %></td>
+        <td><%= athlete.gender %></td>
+        <td><%= athlete.score %></td>
+        <td><%= link_to 'Show', athlete %></td>
+        <td><%= link_to 'Edit', edit_athlete_path(athlete) %></td>
+        <td><%= link_to 'Destroy', athlete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--  Used when importing
+<%= form_tag import_athletes_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+-- >

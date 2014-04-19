@@ -1,0 +1,66 @@
+<h1>Edit Event</h1>
+
+
+  
+<%= form_for :event, url: event_path(@event), method: :patch do |event| %>
+  <!-- Check for and display errors --> 
+  <% if @event.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@event.errors.count, "error") %> prevented
+      this event from being edited:</h2>
+    <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <!-- Value fields -->
+  <p>
+    <strong>Event Code:</strong><br>
+    <%= event.text_field :event_code%>
+  </p>
+
+  <p>
+    <strong>Event Name:</strong><br>
+    <%= event.text_field :event_name%>
+  </p>
+
+  <p>
+    <strong>Score Unit:</strong><br>
+    <div class="field">
+      <%= event.label :score_unit, "T", :value => "T" %>
+      <%= event.radio_button :score_unit, "T" %>
+      <%= event.label :score_unit, "D", :value => "D" %>
+      <%= event.radio_button :score_unit, "D" %>
+      <%= event.label :score_unit, "N", :value => "N" %>
+      <%= event.radio_button :score_unit, "N" %>
+    </div>
+  </p>
+
+  <p>
+    <strong>Min Score:</strong><br>
+    <%= event.text_field :min_score%>
+  </p>
+
+  <p>
+    <strong>Max Score:</strong><br>
+    <%= event.text_field :max_score%>
+  </p>
+
+  <p>
+    <strong>Sort Seq:</strong><br>
+    <%= event.text_field :sort_seq%>
+  </p>
+  <!-- Save edits -->
+  <p>
+    <%= event.submit %>
+  </p>
+<% end %>
+ 
+<!-- Navigation links -->
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>
+
+

@@ -1,0 +1,62 @@
+<h1>New Heat</h1>
+
+<%= form_for :heat, url: heat_path(@heat) do |heat| %>
+  <!-- Check for and display errors -->
+  <% if @heat.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@heat.errors.count, "error") %> prevented
+      this heat from being created:</h2>
+    <ul>
+    <% @heat.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <!-- Value fields -->
+  <p>
+    <strong>Event ID:</strong><br>
+    <%= heat.text_field :event_id %>	
+  </p>
+
+  <p>
+    <strong>Gender:</strong><br>
+    <div class="field">
+      <%= heat.label :gender, "M", :value => "M" %>
+      <%= heat.radio_button :gender, "M" %>
+      <%= heat.label :gender, "F", :value => "F" %>
+      <%= heat.radio_button :gender, "F" %>
+      <%= heat.label :gender, "B", :value => "B" %>
+      <%= heat.radio_button :gender, "B" %>
+    </div>
+  </p>
+
+  <p>
+    <strong>Min age:</strong><br>
+    <%= heat.text_field :min_age %>
+  </p>
+
+  <p>
+    <strong>Max age:</strong><br>
+    <%= heat.text_field :max_age %>
+  </p>
+
+  <p>
+    <strong>Time:</strong><br>
+    <%= heat.text_field :time %>
+  </p>
+
+  <p>
+    <strong>Num heats:</strong><br>
+    <%= heat.text_field :num_heats %>
+  </p>
+
+  <!-- Save new heat -->
+  <p>
+    <%= heat.submit %>
+  </p>
+<% end %>
+
+<!-- Navigation links -->
+<%= link_to 'Back', heats_path %>

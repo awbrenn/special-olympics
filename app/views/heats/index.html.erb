@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Header info -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Heats</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+  </head>
+
+<p id="notice"><%= notice %></p>
+  <body> 
+
+    <div class="container-fluid">
+      <div class="row">
+
+
+          <h1 class="page-header">Heats</h1>
+          <!-- Add heat button -->
+	  <%= button_to 'Add Heat', new_heat_path, method: :get%>
+
+          <!-- Heats table -->
+	  <div class="table-responsive">
+	    <table class="table table-striped">
+  	      <thead>
+    	        <tr>
+                  <th>Heat ID</th>
+                  <th>Gender</th>
+                  <th>Min age</th>
+                  <th>Max age</th>
+      	 	  <th>Time</th>
+      		  <th>Num heats</th>
+      		  <th></th>
+    		</tr>
+  	      </thead>
+
+  	      <tbody>
+              <% @heats.each do |heat| %>
+                <tr>
+        	  <td><%= heat.id %>
+        	  <td><%= heat.gender %></td>
+        	  <td><%= heat.min_age %></td>
+        	  <td><%= heat.max_age %></td>
+        	  <td><%= heat.time %></td>
+        	  <td><%= heat.num_heats %></td>
+                  <!-- Edit and delete buttons -->
+        	  <td><div class="btn-group">  
+		   <button class="btn">Action</button>
+		   <button class="btn dropdown-toggle" data-toggle="dropdown">
+		     <span class="caret"></span>
+		   </button>
+		   <u1 class="dropdown-menu">      	
+        	     <li><%= button_to 'Edit', edit_heat_path(heat), method: :get%></li>
+        	     <li><%= button_to 'Delete', heat, data: { confirm: 'Are you sure?' }, method: :delete%></li></u1></div></td>
+      		</tr>
+    	      <% end %>
+  	      </tbody>
+	    </table>
+	  </div>
+        </div>
+      </div>
+
+      <!-- File import options
+      <br>
+      <strong>Import using heats.csv file.</strong>
+      <%= form_tag import_heats_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import" %>
+      <% end %>
+    -->
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+  </body>
+</html>

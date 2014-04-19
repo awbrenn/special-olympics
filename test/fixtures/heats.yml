@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 
+  gender: MyString
+  min_age: 
+  max_age: 
+  time: MyString
+  num_heats: 
+
+two:
+  event_id: 
+  gender: MyString
+  min_age: 
+  max_age: 
+  time: MyString
+  num_heats: 

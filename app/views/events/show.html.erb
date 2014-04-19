@@ -1,0 +1,36 @@
+
+<p id="notice"><%= notice %></p>
+<!-- Value fields -->
+<p>
+  <strong>Event Code:</strong>
+  <%= @event.event_code %>
+</p>
+
+<p>
+  <strong>Event Name:</strong>
+  <%= @event.event_name %>
+</p>
+
+<p>
+  <strong>Score Unit:</strong>
+  <%= @event.score_unit %>
+</p>
+
+<p>
+  <strong>Min Score:</strong>
+  <%= @event.min_score %>
+</p>
+
+<p>
+  <strong>Max Score:</strong>
+  <%= @event.max_score %>
+</p>
+
+<p>
+  <strong>Sort Seq:</strong>
+  <%= @event.sort_seq %>
+</p>
+
+<!-- Navigation links -->
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

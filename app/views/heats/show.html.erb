@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<!-- Value fields -->
+<p>
+  <strong>Event Name:</strong>
+  <%= Event.find_by_id(@heat.event_id).event_name %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @heat.gender %>
+</p>
+
+<p>
+  <strong>Min age:</strong>
+  <%= @heat.min_age %>
+</p>
+
+<p>
+  <strong>Max age:</strong>
+  <%= @heat.max_age %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @heat.time %>
+</p>
+
+<p>
+  <strong>Num heats:</strong>
+  <%= @heat.num_heats %>
+</p>
+
+<!-- Navigation links -->
+<%= link_to 'Edit', edit_heat_path(@heat) %> |
+<%= link_to 'Back', heats_path %>
